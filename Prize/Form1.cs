@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows;
+using System.IO;
 
 namespace Prize
 {
@@ -14,12 +16,30 @@ namespace Prize
     {
         private Boolean togglerClicked;
         private String angkaAcak;
+        private String[] data;
         
         public Form1()
         {
             InitializeComponent();
             this.togglerClicked = false;
             this.angkaAcak = "0 0 0 0";
+        }
+
+        private void _readData ()
+        {
+            var list = new List<string>();
+            var path = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "mondelez\\data.txt");
+            var fileStream = new FileStream(path, FileMode.Open, FileAccess.ReadWrite);
+            using (var streamReader = new StreamReader(fileStream, Encoding.UTF8))
+            {
+                string line;
+                while ((line = streamReader.ReadLine()) != null)
+                {
+                    list.Add(line);
+                }
+            }
+            data = list.ToArray();
+            cok.Text = Convert.ToString(data.GetUpperBound(0));
         }
 
         private void _initForm ()
@@ -33,6 +53,7 @@ namespace Prize
         private void Form1_Load(object sender, EventArgs e)
         {
             this._initForm();
+            this._readData();
             this.randTimer.Enabled = false;
             this.lblRandomNumber.Text = this.angkaAcak;
         }

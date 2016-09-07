@@ -96,6 +96,7 @@ namespace Prize
                 this.randTimer.Enabled = false;
 
                 parser(this.numbers[randUser][randUserNumber]);
+                cok.Text = String.Format("{0} {1}", randUser, randUserNumber);
             }
             else
             {
@@ -104,7 +105,6 @@ namespace Prize
                 this.randTimer.Enabled = true;
 
                 this.getTheLuckyUser();
-                cok.Text = String.Format("{0} {1}", randUser, randUserNumber);
                 
             }
             
@@ -116,8 +116,9 @@ namespace Prize
 
             if(userQueue.Count > 0)
             {
-                this.randUser = rand.Next(1, userQueue.Count());
-                this.userQueue.RemoveAt(this.randUser);
+                int r = rand.Next(0, userQueue.Count());
+                this.randUser = userQueue[r];
+                this.userQueue.RemoveAt(userQueue.BinarySearch(randUser));
             }
             else
             {

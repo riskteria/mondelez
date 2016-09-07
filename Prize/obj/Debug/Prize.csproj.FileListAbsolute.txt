@@ -16,3 +16,12 @@ E:\Project\Mondelez\mondelez\Prize\obj\Debug\Prize.csprojResolveAssemblyReferenc
 E:\Project\Mondelez\mondelez\Prize\obj\Debug\Prize.Form1.resources
 E:\Project\Mondelez\mondelez\Prize\obj\Debug\Prize.Properties.Resources.resources
 E:\Project\Mondelez\mondelez\Prize\obj\Debug\Prize.csproj.GenerateResource.Cache
+D:\Project\Prize\Prize\bin\Debug\Prize.exe.config
+D:\Project\Prize\Prize\obj\Debug\Prize.exe
+D:\Project\Prize\Prize\obj\Debug\Prize.pdb
+D:\Project\Prize\Prize\bin\Debug\Prize.exe
+D:\Project\Prize\Prize\bin\Debug\Prize.pdb
+D:\Project\Prize\Prize\obj\Debug\Prize.csprojResolveAssemblyReference.cache
+D:\Project\Prize\Prize\obj\Debug\Prize.Form1.resources
+D:\Project\Prize\Prize\obj\Debug\Prize.Properties.Resources.resources
+D:\Project\Prize\Prize\obj\Debug\Prize.csproj.GenerateResource.Cache

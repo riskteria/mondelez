@@ -26,6 +26,8 @@ namespace Prize
         private int randUserNumber;
         private int steps;
 
+        private bool activeStatus = false;
+
         private List<int> userQueue;
         
         public Form1()
@@ -42,7 +44,7 @@ namespace Prize
             this.numbersGold = new List<List<string>>();
 
             this.userQueue = new List<int>();
-            this.steps = 1;
+            this.steps = 7;
 
             this._initForm();
             this._initData();
@@ -157,8 +159,15 @@ namespace Prize
         {
             this.lblRandomNumber.Left = (this.ClientSize.Width - this.lblRandomNumber.Width) / 2;
             this.btnRandToggler.Left = (this.ClientSize.Width - this.btnRandToggler.Width) / 2;
+            this.arisanType.Left = (this.ClientSize.Width - this.arisanType.Width) - 30;
+            this.arisanNumber.Left = (this.ClientSize.Width - this.arisanNumber.Width) - 40;
             this.btnRandToggler.BackColor = Color.DeepSkyBlue;
             this.lblRandomNumber.BackColor = Color.Transparent;
+
+            this.arisanType.BackColor = Color.Gold;
+            this.arisanType.ForeColor = Color.WhiteSmoke;
+            this.arisanNumber.Text = String.Format("# {0}", steps);
+            this.arisanNumber.BackColor = Color.Transparent;
         }
 
         private void btnRandToggler_Click(object sender, EventArgs e)
@@ -172,6 +181,14 @@ namespace Prize
 
                 parser(this.numbers[randUser][randUserNumber]);
                 cok.Text = String.Format("{0} {1}", randUser, randUserNumber);
+
+                if(steps == 1)
+                {
+                    this.btnRandToggler.Text = "Selamat";
+                    this.btnRandToggler.Enabled = false;
+                    this.btnRandToggler.BackColor = Color.Transparent;
+                }
+                
             }
             else
             {
@@ -181,7 +198,18 @@ namespace Prize
                 this.randTimer.Enabled = true;
 
                 this.getTheLuckyUser();
-                
+
+                if (activeStatus) { steps--; }
+                activeStatus = true;
+                this.arisanNumber.Text = String.Format("# {0}", steps);
+
+                if (steps < 4)
+                {
+                    this.arisanType.BackColor = Color.LightGray;
+                    this.arisanType.ForeColor = Color.DarkSlateGray;
+                    this.arisanType.Text = "Platinum";
+                }
+
             }
             
         }

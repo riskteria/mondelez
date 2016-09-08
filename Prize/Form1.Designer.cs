@@ -33,7 +33,8 @@
             this.randTimer = new System.Windows.Forms.Timer(this.components);
             this.cok = new System.Windows.Forms.Label();
             this.lblRandomNumber = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.arisanType = new System.Windows.Forms.Label();
+            this.arisanNumber = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnRandToggler
@@ -77,14 +78,28 @@
             this.lblRandomNumber.Text = "0 0 0 0";
             this.lblRandomNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label1
+            // arisanType
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1175, 116);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "label1";
+            this.arisanType.AutoSize = true;
+            this.arisanType.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arisanType.Location = new System.Drawing.Point(1198, 24);
+            this.arisanType.MinimumSize = new System.Drawing.Size(250, 100);
+            this.arisanType.Name = "arisanType";
+            this.arisanType.Size = new System.Drawing.Size(250, 100);
+            this.arisanType.TabIndex = 5;
+            this.arisanType.Text = "GOLD";
+            this.arisanType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // arisanNumber
+            // 
+            this.arisanNumber.AutoSize = true;
+            this.arisanNumber.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arisanNumber.Location = new System.Drawing.Point(1204, 123);
+            this.arisanNumber.MinimumSize = new System.Drawing.Size(200, 0);
+            this.arisanNumber.Name = "arisanNumber";
+            this.arisanNumber.Size = new System.Drawing.Size(200, 81);
+            this.arisanNumber.TabIndex = 6;
+            this.arisanNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -93,7 +108,8 @@
             this.BackgroundImage = global::Prize.Properties.Resources.Arisan_Backdrop_011;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1430, 735);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.arisanNumber);
+            this.Controls.Add(this.arisanType);
             this.Controls.Add(this.cok);
             this.Controls.Add(this.btnRandToggler);
             this.Controls.Add(this.lblRandomNumber);
@@ -112,7 +128,8 @@
         private System.Windows.Forms.Button btnRandToggler;
         private System.Windows.Forms.Timer randTimer;
         private System.Windows.Forms.Label cok;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label arisanType;
+        private System.Windows.Forms.Label arisanNumber;
     }
 }
 

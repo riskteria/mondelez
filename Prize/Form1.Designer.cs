@@ -29,55 +29,26 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lblEventName = new System.Windows.Forms.Label();
-            this.lblCompanyName = new System.Windows.Forms.Label();
-            this.lblRandomNumber = new System.Windows.Forms.Label();
             this.btnRandToggler = new System.Windows.Forms.Button();
             this.randTimer = new System.Windows.Forms.Timer(this.components);
             this.cok = new System.Windows.Forms.Label();
+            this.lblRandomNumber = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // lblEventName
-            // 
-            this.lblEventName.AutoSize = true;
-            this.lblEventName.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEventName.Location = new System.Drawing.Point(352, 91);
-            this.lblEventName.Name = "lblEventName";
-            this.lblEventName.Size = new System.Drawing.Size(347, 74);
-            this.lblEventName.TabIndex = 0;
-            this.lblEventName.Tag = "";
-            this.lblEventName.Text = "Arisan Grosir";
-            // 
-            // lblCompanyName
-            // 
-            this.lblCompanyName.AutoSize = true;
-            this.lblCompanyName.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompanyName.Location = new System.Drawing.Point(326, 165);
-            this.lblCompanyName.Name = "lblCompanyName";
-            this.lblCompanyName.Size = new System.Drawing.Size(410, 96);
-            this.lblCompanyName.TabIndex = 1;
-            this.lblCompanyName.Text = "MONDELEZ";
-            // 
-            // lblRandomNumber
-            // 
-            this.lblRandomNumber.AutoSize = true;
-            this.lblRandomNumber.Font = new System.Drawing.Font("Courier New", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRandomNumber.Location = new System.Drawing.Point(268, 335);
-            this.lblRandomNumber.Name = "lblRandomNumber";
-            this.lblRandomNumber.Size = new System.Drawing.Size(667, 154);
-            this.lblRandomNumber.TabIndex = 2;
-            this.lblRandomNumber.Text = "0 0 0 0";
-            this.lblRandomNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRandToggler
             // 
+            this.btnRandToggler.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnRandToggler.FlatAppearance.BorderSize = 0;
+            this.btnRandToggler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRandToggler.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRandToggler.Location = new System.Drawing.Point(424, 577);
+            this.btnRandToggler.ForeColor = System.Drawing.Color.Cornsilk;
+            this.btnRandToggler.Location = new System.Drawing.Point(428, 684);
             this.btnRandToggler.Name = "btnRandToggler";
-            this.btnRandToggler.Size = new System.Drawing.Size(394, 108);
+            this.btnRandToggler.Size = new System.Drawing.Size(394, 121);
             this.btnRandToggler.TabIndex = 3;
             this.btnRandToggler.Text = "Mulai Acak";
-            this.btnRandToggler.UseVisualStyleBackColor = true;
+            this.btnRandToggler.UseVisualStyleBackColor = false;
             this.btnRandToggler.Click += new System.EventHandler(this.btnRandToggler_Click);
             // 
             // randTimer
@@ -94,16 +65,38 @@
             this.cok.TabIndex = 4;
             this.cok.Text = "label1";
             // 
+            // lblRandomNumber
+            // 
+            this.lblRandomNumber.AutoSize = true;
+            this.lblRandomNumber.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblRandomNumber.Font = new System.Drawing.Font("Courier New", 100F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRandomNumber.Location = new System.Drawing.Point(312, 135);
+            this.lblRandomNumber.Name = "lblRandomNumber";
+            this.lblRandomNumber.Size = new System.Drawing.Size(935, 227);
+            this.lblRandomNumber.TabIndex = 2;
+            this.lblRandomNumber.Text = "0 0 0 0";
+            this.lblRandomNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1175, 116);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "label1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1215, 735);
+            this.BackgroundImage = global::Prize.Properties.Resources.Arisan_Backdrop_011;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1430, 735);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cok);
             this.Controls.Add(this.btnRandToggler);
             this.Controls.Add(this.lblRandomNumber);
-            this.Controls.Add(this.lblCompanyName);
-            this.Controls.Add(this.lblEventName);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Arisan Grosir";
@@ -115,13 +108,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblEventName;
-        private System.Windows.Forms.Label lblCompanyName;
         private System.Windows.Forms.Label lblRandomNumber;
         private System.Windows.Forms.Button btnRandToggler;
         private System.Windows.Forms.Timer randTimer;
         private System.Windows.Forms.Label cok;
+        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -17,7 +17,10 @@ namespace Prize
     {
         private Boolean togglerClicked;
         private String angkaAcak;
+
         private List<List<string>> numbers;
+        private List<List<string>> numbersGold;
+        private List<List<string>> numbersPlatinum;
 
         private int randUser;
         private int randUserNumber;
@@ -35,15 +38,86 @@ namespace Prize
         private void Form1_Load(object sender, EventArgs e)
         {
             this.numbers = new List<List<string>>();
+            this.numbersPlatinum = new List<List<string>>();
+            this.numbersGold = new List<List<string>>();
+
             this.userQueue = new List<int>();
             this.steps = 1;
 
             this._initForm();
+            this._initData();
             this._readData();
             this.randTimer.Enabled = false;
             this.lblRandomNumber.Text = this.angkaAcak;
 
             this.initQueue();
+        }
+
+        private void _initData ()
+        {
+            string platinum = "platinum";
+
+            _addData(1, 111, platinum);
+            _addData(112, 157, platinum);
+
+            _addData(158, 183);
+            _addData(184, 197);
+            _addData(198, 212);
+            _addData(213, 225);
+            _addData(226, 238);
+            _addData(239, 251);
+            _addData(252, 264);
+            _addData(265, 276);
+            _addData(277, 286);
+            _addData(287, 295);
+            _addData(296, 305);
+            _addData(306, 314);
+            _addData(315, 323);
+            _addData(324, 332);
+            _addData(333, 341);
+            _addData(342, 349);
+            _addData(350, 356);
+            _addData(357, 364);
+
+            _addData(525, 584, platinum);
+            _addData(585, 636, platinum);
+            _addData(637, 677, platinum);
+            _addData(678, 716, platinum);
+            _addData(717, 754, platinum);
+            _addData(755, 787, platinum);
+            _addData(788, 818, platinum);
+            _addData(819, 846, platinum);
+            _addData(847, 873, platinum);
+
+            _addData(874, 891);
+            _addData(892, 906);
+            _addData(907, 920);
+            _addData(921, 932);
+            _addData(933, 944);
+            _addData(945, 955);
+            _addData(956, 964);
+            _addData(965, 967);
+            _addData(968, 997);
+            _addData(998, 1000);
+
+        }
+
+        private void _addData(int from, int to, string jenis = "gold")
+        {
+            List<string> temp = new List<string>();
+            for(; from <= to; from++)
+            {
+                temp.Add(from.ToString());
+            }
+
+            if(jenis == "platinum")
+            {
+                numbersPlatinum.Add(temp);
+            }
+            else
+            {
+                numbersGold.Add(temp);
+            }
         }
 
         private void initQueue ()
@@ -81,16 +155,17 @@ namespace Prize
 
         private void _initForm ()
         {
-            this.lblEventName.Left = (this.ClientSize.Width - this.lblEventName.Width) / 2;
-            this.lblCompanyName.Left = (this.ClientSize.Width - this.lblCompanyName.Width) / 2;
             this.lblRandomNumber.Left = (this.ClientSize.Width - this.lblRandomNumber.Width) / 2;
             this.btnRandToggler.Left = (this.ClientSize.Width - this.btnRandToggler.Width) / 2;
+            this.btnRandToggler.BackColor = Color.DeepSkyBlue;
+            this.lblRandomNumber.BackColor = Color.Transparent;
         }
 
         private void btnRandToggler_Click(object sender, EventArgs e)
         {
             if(this.togglerClicked)
             {
+                this.btnRandToggler.BackColor = Color.DeepSkyBlue;
                 this.btnRandToggler.Text = "Mulai Acak";
                 this.togglerClicked = false;
                 this.randTimer.Enabled = false;
@@ -100,6 +175,7 @@ namespace Prize
             }
             else
             {
+                this.btnRandToggler.BackColor = Color.PaleVioletRed;
                 this.btnRandToggler.Text = "Berhenti";
                 this.togglerClicked = true;
                 this.randTimer.Enabled = true;

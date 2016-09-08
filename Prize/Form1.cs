@@ -21,6 +21,7 @@ namespace Prize
         private List<List<string>> numbers;
         private List<List<string>> numbersGold;
         private List<List<string>> numbersPlatinum;
+        private string numberAngel = "0";
 
         private int randUser;
         private int randUserNumber;
@@ -29,6 +30,8 @@ namespace Prize
         private bool activeStatus = false;
 
         private List<int> userQueue;
+        private List<int> goldQueue;
+        private List<int> platinumQueue;
         
         public Form1()
         {
@@ -44,11 +47,13 @@ namespace Prize
             this.numbersGold = new List<List<string>>();
 
             this.userQueue = new List<int>();
+            this.goldQueue = new List<int>();
+            this.platinumQueue = new List<int>();
+
             this.steps = 7;
 
             this._initForm();
             this._initData();
-            this._readData();
             this.randTimer.Enabled = false;
             this.lblRandomNumber.Text = this.angkaAcak;
 
@@ -124,34 +129,17 @@ namespace Prize
 
         private void initQueue ()
         {
-            int totalUser = this.numbers.Count();
-            for(int i=1; i<totalUser; i++)
-            {
-                userQueue.Add(i);
-            }
-        }
+            int totalGold = this.numbersGold.Count();
+            int totalPlatinum = this.numbersPlatinum.Count();
 
-        private void _readData ()
-        {
-            var path = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "prize\\data.txt");
-            var fileStream = new FileStream(path, FileMode.Open, FileAccess.Read);
-            using (var streamReader = new StreamReader(fileStream, Encoding.UTF8))
+            for(int i=1; i<totalGold; i++)
             {
-                string line;
-                List<string> temp = new List<string>();
-                while ((line = streamReader.ReadLine()) != null)
-                {
-                    if(line.Contains("#"))
-                    {
-                        this.numbers.Add(temp);
-                        temp = new List<string>();
-                    }
-                    else
-                    {
-                        temp.Add(line);
-                    }
-                }
-                this.numbers.RemoveAt(0);
+                goldQueue.Add(i);
+            }
+
+            for(int i=1; i<totalPlatinum; i++)
+            {
+                platinumQueue.Add(i);
             }
         }
 
@@ -179,7 +167,17 @@ namespace Prize
                 this.togglerClicked = false;
                 this.randTimer.Enabled = false;
 
-                parser(this.numbers[randUser][randUserNumber]);
+                if (steps > 3)
+                {
+                    parser(this.numbersGold[randUser][randUserNumber]);
+                } else if (steps > 1)
+                {
+                    parser(this.numbersPlatinum[randUser][randUserNumber]);
+                } else if (steps == 1)
+                {
+                    parser(this.numberAngel);
+                }
+
                 cok.Text = String.Format("{0} {1}", randUser, randUserNumber);
 
                 if(steps == 1)
@@ -218,18 +216,19 @@ namespace Prize
         {
             Random rand = new Random();
 
-            if(userQueue.Count > 0)
+            if(this.steps > 3)
             {
-                int r = rand.Next(0, userQueue.Count());
-                this.randUser = userQueue[r];
-                this.userQueue.RemoveAt(userQueue.BinarySearch(randUser));
-            }
-            else
+                int r = rand.Next(0, goldQueue.Count());
+                this.randUser = goldQueue[r];
+                this.goldQueue.RemoveAt(goldQueue.BinarySearch(randUser));
+                this.randUserNumber = rand.Next(0, this.numbersGold[randUser].Count());
+            } else
             {
-                this.randUser = 0;
+                int r = rand.Next(0, platinumQueue.Count());
+                this.randUser = platinumQueue[r];
+                this.platinumQueue.RemoveAt(platinumQueue.BinarySearch(randUser));
+                this.randUserNumber = rand.Next(0, this.numbersPlatinum[randUser].Count());
             }
-            
-            this.randUserNumber = rand.Next(0, this.numbers[randUser].Count());
         }
 
         private void parser(String angka)

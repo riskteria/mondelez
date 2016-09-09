@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.btnRandToggler = new System.Windows.Forms.Button();
             this.randTimer = new System.Windows.Forms.Timer(this.components);
-            this.cok = new System.Windows.Forms.Label();
             this.lblRandomNumber = new System.Windows.Forms.Label();
             this.arisanType = new System.Windows.Forms.Label();
             this.arisanNumber = new System.Windows.Forms.Label();
@@ -56,15 +55,6 @@
             // 
             this.randTimer.Interval = 1;
             this.randTimer.Tick += new System.EventHandler(this.randTimer_Tick);
-            // 
-            // cok
-            // 
-            this.cok.AutoSize = true;
-            this.cok.Location = new System.Drawing.Point(12, 9);
-            this.cok.Name = "cok";
-            this.cok.Size = new System.Drawing.Size(51, 20);
-            this.cok.TabIndex = 4;
-            this.cok.Text = "label1";
             // 
             // lblRandomNumber
             // 
@@ -110,7 +100,6 @@
             this.ClientSize = new System.Drawing.Size(1430, 735);
             this.Controls.Add(this.arisanNumber);
             this.Controls.Add(this.arisanType);
-            this.Controls.Add(this.cok);
             this.Controls.Add(this.btnRandToggler);
             this.Controls.Add(this.lblRandomNumber);
             this.Name = "Form1";
@@ -127,7 +116,6 @@
         private System.Windows.Forms.Label lblRandomNumber;
         private System.Windows.Forms.Button btnRandToggler;
         private System.Windows.Forms.Timer randTimer;
-        private System.Windows.Forms.Label cok;
         private System.Windows.Forms.Label arisanType;
         private System.Windows.Forms.Label arisanNumber;
     }

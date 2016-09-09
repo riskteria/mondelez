@@ -21,7 +21,7 @@ namespace Prize
         private List<List<string>> numbers;
         private List<List<string>> numbersGold;
         private List<List<string>> numbersPlatinum;
-        private string numberAngel = "0";
+        private string numberAngel = "425";
 
         private int randUser;
         private int randUserNumber;
@@ -50,7 +50,7 @@ namespace Prize
             this.goldQueue = new List<int>();
             this.platinumQueue = new List<int>();
 
-            this.steps = 7;
+            this.steps = 8;
 
             this._initForm();
             this._initData();
@@ -178,8 +178,6 @@ namespace Prize
                     parser(this.numberAngel);
                 }
 
-                cok.Text = String.Format("{0} {1}", randUser, randUserNumber);
-
                 if(steps == 1)
                 {
                     this.btnRandToggler.Text = "Selamat";
@@ -194,12 +192,12 @@ namespace Prize
                 this.btnRandToggler.Text = "Berhenti";
                 this.togglerClicked = true;
                 this.randTimer.Enabled = true;
-
-                this.getTheLuckyUser();
-
+                
                 if (activeStatus) { steps--; }
                 activeStatus = true;
                 this.arisanNumber.Text = String.Format("# {0}", steps);
+
+                this.getTheLuckyUser();
 
                 if (steps < 4)
                 {

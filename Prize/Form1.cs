@@ -188,23 +188,28 @@ namespace Prize
             }
             else
             {
-                this.btnRandToggler.BackColor = Color.PaleVioletRed;
-                this.btnRandToggler.Text = "Berhenti";
-                this.togglerClicked = true;
-                this.randTimer.Enabled = true;
-                
-                if (activeStatus) { steps--; }
-                activeStatus = true;
-                this.arisanNumber.Text = String.Format("# {0}", steps);
-
-                this.getTheLuckyUser();
-
-                if (steps < 4)
+                if (MessageBox.Show("Mulai Undi ?", "Arisan Grosir Mondelez",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                    == DialogResult.Yes)
                 {
-                    this.arisanType.BackColor = Color.LightGray;
-                    this.arisanType.ForeColor = Color.DarkSlateGray;
-                    this.arisanType.Text = "Platinum";
-                }
+                    this.btnRandToggler.BackColor = Color.PaleVioletRed;
+                    this.btnRandToggler.Text = "Berhenti";
+                    this.togglerClicked = true;
+                    this.randTimer.Enabled = true;
+
+                    if (activeStatus) { steps--; }
+                    activeStatus = true;
+                    this.arisanNumber.Text = String.Format("# {0}", steps);
+
+                    this.getTheLuckyUser();
+
+                    if (steps < 4)
+                    {
+                        this.arisanType.BackColor = Color.LightGray;
+                        this.arisanType.ForeColor = Color.DarkSlateGray;
+                        this.arisanType.Text = "Platinum";
+                    }
+                }                
 
             }
             
